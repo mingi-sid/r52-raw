@@ -1,10 +1,16 @@
-This is the subset of the Reuters-21578 benchmark, contains only the documents with a single category and only the categories that have at least 1 document in both the training and testing sets, following the filtering steps by Debole and Sebastiani, 2005.
+This is the subset of the Reuters-21578 benchmark for (plain) text classification.
 
-I used dataset provided with NLTK Python library.
+It contains only the documents with a single category label and only the categories that have at least 1 document in both the training and testing sets, same as the filtering scheme by Debole and Sebastiani, 2005. It's suitable for text classification, especially using the models with their own tokenizers such as BERT, which shows good performance on the plain text.
 
-There are [R52 datasets after preprocessing](https://ana.cachopo.org/datasets-for-single-label-text-categorization), provided by Ana Cardoso-Cachopo, but I couldn't find the raw R52 dataset without pre-processing.
+On the internet, there are [R52 datasets after pre-processing](https://ana.cachopo.org/datasets-for-single-label-text-categorization), provided by Ana Cardoso-Cachopo. But I couldn't find the raw R52 dataset without pre-processing, so I built one.
 
-I tried my best to follow the given directions, but **there are inconsistencies with the existing dataset online**. The total number of documents in other pre-processed R52 dataset is 9,100, whereas mine is 9,130. I'm not sure where this inconsistency come from. Maybe NLTK version of Reuters-21578 has some duplicated documents over different categories. (c.f. Debole and Sebastiani mentioned that their dataset consists of 9,052 documents) So, **please use with caution**.
+## Making a subset
+
+I used dataset provided with NLTK Python library as a base. The only change in the text is that escaped 'less than' sign (\&lt;) is restored to <.
+
+I tried my best to follow the given directions, but **there are inconsistencies with the R52 dataset online**. The total number of documents in other pre-processed R52 dataset is 9,100, whereas mine is 9,130. I'm not sure where this inconsistency come from. Maybe NLTK version of Reuters-21578 has some duplicated documents over different categories. (c.f. Debole and Sebastiani mentioned that their dataset consists of 9,052 documents) So, **please use with caution**.
+
+## Distribution
 
 There are 52 classes and 9,130 documents.
 
@@ -65,7 +71,21 @@ zinc                 8     5
 TOTAL             6560  2570
 ```
 
-I do not have any copyright of this dataset.
+## Format
+
+File encoding is UTF-8. There is no header.
+
+There are 4 columns, each are file id, category id, name of the category, and the raw text.
+
+Columns are distinguished with tabs (\t).
+
+The category id is given in the alphabetical order.
+
+The raw text (most of them) contains New-line character (\n), so its quoted with quote sign. (")
+
+## Notes
+
+I do not own any copyright of this dataset.
 
 If you're using Pandas, you can load the file by
 
