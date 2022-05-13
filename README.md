@@ -1,6 +1,6 @@
 This is the subset of the Reuters-21578 benchmark for (plain) text classification.
 
-It contains only the documents with a single category label and only the categories that have at least 1 document in both the training and testing sets, same as the filtering scheme by Debole and Sebastiani, 2005. It's suitable for text classification, especially using the models with their own tokenizers such as BERT, which shows good performance on the plain text.
+It contains only the documents with a single category label and only the categories that have at least 1 document in both the training and testing sets, same as the filtering scheme by H. Guan et al., 2009. It's suitable for text classification, especially using the models with their own tokenizers such as BERT, which shows good performance on the plain text.
 
 On the internet, there are [R52 datasets after pre-processing](https://ana.cachopo.org/datasets-for-single-label-text-categorization), provided by Ana Cardoso-Cachopo. But I couldn't find the raw R52 dataset without pre-processing, so I built one.
 
@@ -8,7 +8,7 @@ On the internet, there are [R52 datasets after pre-processing](https://ana.cacho
 
 I used dataset provided with NLTK Python library as a base. The only change in the text is that escaped 'less than' sign (\&lt;) is restored to <.
 
-I tried my best to follow the given directions, but **there are inconsistencies with the R52 dataset online**. The total number of documents in other pre-processed R52 dataset is 9,100, whereas mine is 9,130. I'm not sure where this inconsistency come from. Maybe NLTK version of Reuters-21578 has some duplicated documents over different categories. (c.f. Debole and Sebastiani mentioned that their dataset consists of 9,052 documents) So, **please use with caution**.
+I tried my best to follow the given directions, but **there are inconsistencies with the R52 dataset online**. The total number of documents in other pre-processed R52 dataset is 9,100, whereas mine is 9,130. I'm not sure where this inconsistency come from. Maybe NLTK version of Reuters-21578 has some duplicated documents over different categories. (c.f. H. Guan et al. mentioned that their dataset consists of 9,052 documents, which is close to the number of unique documents, 9,053.) So, **please use with caution**.
 
 ## Distribution
 
